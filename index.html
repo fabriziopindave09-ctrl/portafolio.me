@@ -1,0 +1,405 @@
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabrizio Pindave | Bartender & Desarrollador Web</title>
+<meta name="description" content="Portafolio de Fabrizio Pindave: coctelería, gestión de caja y desarrollo web. Bahía Blanca, Argentina.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0c0f;--s1:#101318;--s2:#151921;--line:#232831;--txt:#a9b0bb;--hd:#f3f5f8;--si:#cfd5de;--st:#8d9db6;--ok:#5fb88a;color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--txt);font:400 16px/1.65 'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:var(--hd);line-height:1.2}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+.alt{background:var(--s1);border-block:1px solid var(--line)}
+.sh{text-align:center;margin-bottom:56px}
+.sh h2{font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:-.02em}
+.sh h2 span,.si{color:var(--si)}
+.sh p{margin-top:8px;font-size:.95rem}
+.sh:after{content:"";display:block;width:40px;height:2px;margin:18px auto 0;background:linear-gradient(90deg,transparent,var(--si),transparent)}
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:40;background:rgba(10,12,15,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:12px;font:700 .95rem 'Space Grotesk';letter-spacing:.12em;color:var(--hd)}
+.logo b{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,#e8ecf2,#8d96a5);color:#0a0c0f;letter-spacing:0}
+nav{display:none;gap:30px;align-items:center;font-size:.85rem;font-weight:500}
+nav a{color:var(--txt);transition:color .2s}
+nav a:hover{color:var(--hd)}
+nav .cta{padding:8px 18px;border:1px solid var(--st);border-radius:99px;color:var(--hd)}
+nav .cta:hover{background:var(--hd);color:var(--bg)}
+#mb{background:none;border:0;color:var(--hd);font-size:1.3rem;cursor:pointer;padding:8px}
+#mm{display:none;padding:8px 24px 20px;border-top:1px solid var(--line)}
+#mm.open{display:block}
+#mm a{display:block;padding:12px 0;border-bottom:1px solid var(--line)}
+@media(min-width:820px){nav{display:flex}#mb{display:none}}
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;text-align:center;padding:130px 0 80px;position:relative;overflow:hidden;
+background:radial-gradient(60% 50% at 50% 0,rgba(141,157,182,.16),transparent 70%),linear-gradient(var(--line) 1px,transparent 1px) 0 0/64px 64px,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/64px 64px;
+-webkit-mask-image:none}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 20%,var(--bg) 75%)}
+.hero .wrap{position:relative}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid var(--line);border-radius:99px;background:var(--s1);font-size:.8rem;margin-bottom:28px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(95,184,138,.18)}
+h1{font-size:clamp(2.6rem,8vw,5.2rem);letter-spacing:-.035em;font-weight:700}
+h1 span{background:linear-gradient(180deg,#fff,#8d96a5);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.roles{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:28px 0}
+.roles span{padding:7px 16px;border:1px solid var(--line);border-radius:99px;font-size:.85rem;font-weight:500;color:var(--si);background:rgba(16,19,24,.7)}
+.roles i{margin-right:8px;color:var(--st)}
+.slogan{max-width:640px;margin:0 auto 40px;font-size:clamp(1.05rem,2.2vw,1.3rem);font-weight:300;color:var(--si)}
+.btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:12px;font:600 .9rem 'Plus Jakarta Sans';border:1px solid var(--line);background:var(--s2);color:var(--hd);cursor:pointer;transition:.25s}
+.btn:hover{border-color:var(--st);transform:translateY(-2px)}
+.btn.p{background:linear-gradient(135deg,#eef1f5,#9aa3b2);color:#0a0c0f;border-color:transparent}
+.btn.p:hover{box-shadow:0 10px 30px -10px rgba(207,213,222,.5)}
+/* cards */
+.card{background:var(--s1);border:1px solid var(--line);border-radius:18px;padding:28px;transition:.3s}
+.alt .card{background:var(--s2)}
+.card:hover{border-color:#3a414d;transform:translateY(-3px)}
+.grid2{display:grid;gap:24px}
+@media(min-width:820px){.grid2{grid-template-columns:1fr 1fr}.about{grid-template-columns:7fr 5fr!important}.contact{grid-template-columns:5fr 7fr!important}}
+/* about */
+.about{display:grid;gap:40px;align-items:center}
+.about h3{font-size:1.6rem;margin-bottom:16px}
+.about p{margin-bottom:16px}
+.about strong,.hl strong{color:var(--hd);font-weight:600}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:24px}
+.chip{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--s1);font-size:.8rem;font-weight:600;color:var(--hd)}
+.chip i{color:var(--st);font-size:1.05rem;width:20px;text-align:center}
+.hl h4{font-size:1.1rem;margin-bottom:20px;display:flex;gap:10px;align-items:center}
+.hl li{display:flex;gap:14px;font-size:.9rem;margin-bottom:18px}
+.hl li i{color:var(--st);margin-top:5px}
+/* experience */
+.filters{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:40px}
+.f{padding:9px 20px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--txt);font:500 .85rem 'Plus Jakarta Sans';cursor:pointer;transition:.2s}
+.f:hover{border-color:var(--st);color:var(--hd)}
+.f.on{background:var(--hd);color:var(--bg);border-color:var(--hd)}
+.exp{display:flex;flex-direction:column;gap:12px}
+.exp .top{display:flex;justify-content:space-between;align-items:center}
+.date{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--st)}
+.exp .top i{width:40px;height:40px;display:grid;place-items:center;border-radius:11px;background:var(--bg);border:1px solid var(--line);color:var(--si)}
+.exp h3{font-size:1.25rem}
+.role{color:var(--si);font-weight:600;font-size:.9rem}
+.loc{font-size:.78rem;color:#6f7885}
+.loc i{margin-right:6px}
+.exp p:not(.role):not(.loc){font-size:.9rem}
+.exp li{font-size:.82rem;padding-left:18px;position:relative;margin-top:6px}
+.exp li:before{content:"";position:absolute;left:0;top:.7em;width:8px;height:1px;background:var(--st)}
+.wide{grid-column:1/-1}
+/* skills */
+.sk h3{font-size:1.3rem;margin-bottom:6px;display:flex;gap:12px;align-items:center}
+.sk h3 i{color:var(--st)}
+.sk>p{font-size:.85rem;margin-bottom:22px}
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tags span{padding:8px 16px;border-radius:10px;border:1px solid var(--line);background:var(--bg);font-size:.84rem;font-weight:500;color:var(--hd);transition:.2s}
+.tags span:hover{border-color:var(--st)}
+/* projects */
+.proj{display:grid;gap:24px}
+@media(min-width:820px){.proj{grid-template-columns:repeat(3,1fr)}}
+.proj .card{padding:0;overflow:hidden}
+.pv{height:170px;display:grid;place-items:center;background:radial-gradient(circle at 50% 120%,rgba(141,157,182,.22),transparent 70%),var(--bg);border-bottom:1px solid var(--line);font-size:3rem;color:var(--st)}
+.pb{padding:24px}
+.pb small{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--st)}
+.pb h3{font-size:1.15rem;margin:6px 0 8px}
+.pb p{font-size:.85rem}
+/* education */
+.edu h3{font-size:1.15rem;margin-bottom:20px;display:flex;gap:12px;align-items:center}
+.edu h3 i{color:var(--st)}
+.edu .card{margin-bottom:20px}
+.eh{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.eh h4{font-size:1.05rem}
+.eh em{font-style:normal;font-size:.85rem;color:var(--st)}
+.yr{font-size:.72rem;padding:4px 10px;border-radius:99px;border:1px solid var(--line);white-space:nowrap}
+.yr.ok{color:var(--ok);border-color:rgba(95,184,138,.35)}
+.edu .card p{font-size:.85rem;margin-top:12px}
+.mini{display:flex;gap:14px;align-items:center}
+.mini+.mini{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.mini i{font-size:1.3rem;color:var(--st);width:28px;text-align:center}
+.mini h5{font-size:.9rem;color:var(--hd)}
+.mini p{margin:0!important;font-size:.8rem!important}
+/* contact */
+.contact{display:grid;gap:32px}
+.ci{display:flex;align-items:center;gap:16px;margin-bottom:16px;padding:20px 24px}
+.ci>i{width:46px;height:46px;display:grid;place-items:center;border-radius:12px;background:var(--bg);border:1px solid var(--line);color:var(--si);flex:none}
+.ci div{flex:1;min-width:0}
+.ci small{display:block;font-size:.72rem}
+.ci b{color:var(--hd);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ci button{background:none;border:0;color:var(--txt);cursor:pointer;padding:8px;font-size:1rem}
+.ci button:hover{color:var(--hd)}
+.qa{display:flex;gap:12px;flex-wrap:wrap}
+.qa .btn{flex:1;justify-content:center;white-space:nowrap}
+label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;color:var(--si)}
+input,select,textarea{width:100%;padding:13px 16px;border-radius:12px;background:var(--bg);border:1px solid var(--line);color:var(--hd);font:inherit;font-size:.92rem;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--st)}
+textarea{resize:none}
+form>div{margin-bottom:20px}
+.two{display:grid;gap:20px}
+@media(min-width:600px){.two{grid-template-columns:1fr 1fr}}
+form .btn{width:100%;justify-content:center}
+footer{border-top:1px solid var(--line);padding:28px 0;font-size:.78rem;color:#6f7885}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+/* toast */
+#toast{position:fixed;right:20px;bottom:20px;z-index:50;display:flex;gap:12px;align-items:center;padding:14px 20px;background:var(--s2);border:1px solid var(--st);border-radius:12px;color:var(--hd);font-size:.85rem;box-shadow:0 20px 40px -10px #000;transform:translateY(90px);opacity:0;transition:.3s;pointer-events:none}
+#toast.show{transform:none;opacity:1}
+#toast i{color:var(--si)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="toast" role="status"><i id="ti" class="fas"></i><span id="tm"></span></div>
+
+<header>
+<div class="wrap">
+<div class="bar">
+<a href="#inicio" class="logo"><b>FP</b>FABRIZIO PINDAVE</a>
+<nav>
+<a href="#inicio">Inicio</a><a href="#sobre-mi">Sobre mí</a><a href="#experiencia">Experiencia</a><a href="#habilidades">Habilidades</a><a href="#proyectos">Proyectos</a><a href="#contacto" class="cta">Contacto</a>
+</nav>
+<button id="mb" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+</div>
+</div>
+<div id="mm">
+<a href="#inicio">Inicio</a><a href="#sobre-mi">Sobre mí</a><a href="#experiencia">Experiencia</a><a href="#habilidades">Habilidades</a><a href="#proyectos">Proyectos</a><a href="#contacto">Contacto</a>
+</div>
+</header>
+
+<main>
+<section id="inicio" class="hero">
+<div class="wrap">
+<div class="badge"><span class="dot"></span>Bahía Blanca, Argentina · Full Time</div>
+<h1>Fabrizio <span>Pindave</span></h1>
+<div class="roles">
+<span><i class="fas fa-martini-glass-citrus"></i>Bartender &amp; Coctelería</span>
+<span><i class="fas fa-code"></i>Desarrollador Web</span>
+<span><i class="fas fa-cash-register"></i>Gestión de Caja &amp; Salón</span>
+</div>
+<p class="slogan">Excelencia en el servicio, Solido en el codigo.</p>
+<div class="btns">
+<a href="#experiencia" class="btn p"><i class="fas fa-briefcase"></i>Ver experiencia</a>
+<a href="#contacto" class="btn"><i class="fas fa-envelope"></i>Contactarme</a>
+<button class="btn" onclick="downloadCV()"><i class="fas fa-download"></i>Descargar CV</button>
+</div>
+</div>
+</section>
+
+<section id="sobre-mi" class="alt">
+<div class="wrap">
+<div class="sh"><h2>Sobre <span>mí</span></h2></div>
+<div class="about">
+<div>
+<h3>Un perfil dinámico, adaptable y orientado a la excelencia.</h3>
+<p>Cuento con sólida experiencia en atención al cliente, servicio de barra, coctelería, salón y gestión de caja en entornos de alta concurrencia. He estado a cargo de turnos nocturnos de forma autónoma, con despacho eficiente de bebidas, cobros y resolución de consultas con precisión y temple bajo presión.</p>
+<p>En paralelo, mi formación en la <strong>Tecnicatura en Programación (UTN)</strong> me aporta una base analítica para resolver problemas mediante lógica de programación, con Python, HTML, C++ y Java.</p>
+<div class="chips">
+<div class="chip"><i class="fas fa-headset"></i>Servicio al cliente</div>
+<div class="chip"><i class="fas fa-cash-register"></i>Gestión de caja y barra</div>
+<div class="chip"><i class="fas fa-brain"></i>Pensamiento lógico</div>
+<div class="chip"><i class="fas fa-bolt"></i>Trabajo bajo presión</div>
+<div class="chip"><i class="fas fa-certificate"></i>Carnet de manipulador</div>
+<div class="chip"><i class="fas fa-clock"></i>Gestión autónoma</div>
+</div>
+</div>
+<div class="card hl">
+<h4><i class="fas fa-star" style="color:var(--si)"></i>Valor agregado</h4>
+<ul>
+<li><i class="fas fa-check"></i><span><strong>Atención ágil:</strong> capacidad comprobada para liderar el despacho de coctelería y servicio en eventos masivos o locales de alto volumen.</span></li>
+<li><i class="fas fa-check"></i><span><strong>Precisión financiera:</strong> cierre de caja diario, cobros integrales y control de inventario con rigor.</span></li>
+<li><i class="fas fa-check"></i><span><strong>Enfoque tecnológico:</strong> optimización de procesos digitales, gestión de comunidades y resolución de fallas de software.</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="experiencia">
+<div class="wrap">
+<div class="sh"><h2>Trayectoria <span>laboral</span></h2><p>Recorrido profesional en el sector gastronómico, comercial y tecnológico.</p></div>
+<div class="filters">
+<button class="f on" data-f="all">Todos</button>
+<button class="f" data-f="gastro">Gastronomía &amp; Barra</button>
+<button class="f" data-f="tech">Tecnología &amp; Gestión</button>
+</div>
+<div class="grid2" id="exp">
+
+<article class="card exp gastro">
+<div class="top"><span class="date">Abr 2026 – Sep 2026</span><i class="fas fa-martini-glass-citrus"></i></div>
+<h3>Chilla Calavera</h3><p class="role">Encargado de Barra y Caja / Mozo</p>
+<p class="loc"><i class="fas fa-location-dot"></i>Av. Alem 306, Bahía Blanca</p>
+<p>Inicié en atención de mesas y fui promovido a responsable del sector de barra y caja.</p>
+<ul><li>Servicio de cerveza tirada desde canilla.</li><li>Preparación y despacho ágil de coctelería y tragos.</li><li>Gestión integral del cobro y cierre de caja del local.</li></ul>
+</article>
+
+<article class="card exp gastro">
+<div class="top"><span class="date">Ene 2026 – Feb 2026</span><i class="fas fa-beer-mug-empty"></i></div>
+<h3>Cerveza Patagonia – Refugio</h3><p class="role">Mozo / Runner</p>
+<p class="loc"><i class="fas fa-location-dot"></i>Av. Alem 563, Bahía Blanca</p>
+<p>Atención directa a clientes y asesoramiento sobre la carta de cervezas artesanales.</p>
+<ul><li>Asesoramiento sobre distintas variedades de cerveza.</li><li>Toma y comanda eficiente de pedidos.</li><li>Asistencia general en orden y dinamismo de salón.</li></ul>
+</article>
+
+<article class="card exp gastro">
+<div class="top"><span class="date">Sep 2025 – Dic 2025</span><i class="fas fa-mug-hot"></i></div>
+<h3>The Coffee Store</h3><p class="role">Mozo / Atención al Cliente</p>
+<p class="loc"><i class="fas fa-location-dot"></i>Parque de Mayo, Bahía Blanca</p>
+<p>Servicio de cafetería de alta calidad con atención personalizada.</p>
+<ul><li>Recomendaciones personalizadas a clientes.</li><li>Comandado y organización de mesas.</li><li>Servicio directo de alimentos y bebidas.</li></ul>
+</article>
+
+<article class="card exp gastro">
+<div class="top"><span class="date">Jul 2025 – Ago 2025</span><i class="fas fa-utensils"></i></div>
+<h3>Revoque Café</h3><p class="role">Mozo de Salón</p>
+<p class="loc"><i class="fas fa-location-dot"></i>Av. Alem 54, Bahía Blanca</p>
+<p>Atención eficiente en un local gastronómico de alto volumen de comensales.</p>
+<ul><li>Toma de pedidos y recomendaciones sobre el menú.</li><li>Experiencia acogedora y servicio rápido.</li></ul>
+</article>
+
+<article class="card exp tech">
+<div class="top"><span class="date">Feb 2025 – Jun 2025</span><i class="fas fa-boxes-stacked"></i></div>
+<h3>XT Regalos</h3><p class="role">Gestor de Caja y Repositor</p>
+<p class="loc"><i class="fas fa-location-dot"></i>Chiclana 45, Bahía Blanca</p>
+<p>Gestión comercial y control de inventario en tienda.</p>
+<ul><li>Gestión y cierre de caja.</li><li>Reposición y mantenimiento del orden del stock.</li></ul>
+</article>
+
+<article class="card exp gastro">
+<div class="top"><span class="date">Oct 2024 – Ene 2025</span><i class="fas fa-champagne-glasses"></i></div>
+<h3>Seven Producciones / Fvck Club</h3><p class="role">Barra / Mozo de Eventos</p>
+<p class="loc"><i class="fas fa-location-dot"></i>Gorriti 50, Bahía Blanca</p>
+<p>Eventos masivos de alta concurrencia con jornadas de hasta 12 horas.</p>
+<ul><li>Despacho veloz de bebidas en barra.</li><li>Coordinación de equipo bajo alta presión.</li></ul>
+</article>
+
+<article class="card exp tech wide">
+<div class="top"><span class="date">Sep 2023 – Sep 2024</span><i class="fas fa-desktop"></i></div>
+<h3>Rushnet Cyber Café</h3><p class="role">Encargado Nocturno &amp; Community Manager</p>
+<p class="loc"><i class="fas fa-location-dot"></i>Lamadrid 118, Bahía Blanca</p>
+<p>Gestión autónoma del turno nocturno (22:00 a 05:00 hs) durante un año completo.</p>
+<ul><li>Cierre de caja diario con absoluta precisión.</li><li>Asistencia virtual y presencial a usuarios.</li><li>Mantenimiento de equipos de computación.</li><li>Gestión de redes y comunicación de la marca.</li></ul>
+</article>
+
+</div>
+</div>
+</section>
+
+<section id="habilidades" class="alt">
+<div class="wrap">
+<div class="sh"><h2>Habilidades &amp; <span>tecnología</span></h2><p>Competencias operativas y de programación.</p></div>
+<div class="grid2">
+<div class="card sk">
+<h3><i class="fas fa-wine-glass"></i>Gastronomía &amp; Coctelería</h3>
+<p>Servicio de barra y salón en entornos de alta demanda.</p>
+<div class="tags"><span>Cerveza tirada</span><span>Coctelería clásica y de autor</span><span>Arqueo y cierre de caja</span><span>Atención en eventos</span><span>Servicio de salón</span><span>Atención al cliente</span></div>
+</div>
+<div class="card sk">
+<h3><i class="fas fa-laptop-code"></i>Programación &amp; Tecnología</h3>
+<p>Base sólida en lógica, algoritmos y desarrollo web.</p>
+<div class="tags"><span>HTML5</span><span>CSS3</span><span>Python</span><span>C++</span><span>Java</span><span>POO y estructuras de datos</span><span>Community Management</span><span>Soporte técnico</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="proyectos">
+<div class="wrap">
+<div class="sh"><h2>Trabajo en <span>acción</span></h2><p>Donde el servicio de salón y barra se encuentra con el código.</p></div>
+<div class="proj">
+<div class="card"><div class="pv"><i class="fas fa-martini-glass-citrus"></i></div><div class="pb"><small>Gastronomía &amp; Barra</small><h3>Coctelería &amp; Cervecería</h3><p>Despacho ágil en eventos de alta demanda y barras con atención personalizada.</p></div></div>
+<div class="card"><div class="pv"><i class="fas fa-cash-register"></i></div><div class="pb"><small>Desarrollo Web</small><h3>Lógica de gestión de turnos</h3><p>Modelado de un sistema POS para el control diario de caja, basado en experiencia real de salón.</p></div></div>
+<div class="card"><div class="pv"><i class="fas fa-laptop-code"></i></div><div class="pb"><small>Diseño Web</small><h3>Páginas interactivas</h3><p>Sitios estáticos optimizados, portafolios y landing pages modernas.</p></div></div>
+</div>
+</div>
+</section>
+
+<section class="alt">
+<div class="wrap">
+<div class="sh"><h2>Educación &amp; <span>certificados</span></h2></div>
+<div class="grid2 edu">
+<div>
+<h3><i class="fas fa-graduation-cap"></i>Formación académica</h3>
+<div class="card">
+<div class="eh"><div><h4>Tecnicatura en Programación</h4><em>UTN Bahía Blanca</em></div><span class="yr">2024 – 2025</span></div>
+<p>Conocimientos prácticos en Python, HTML, C++ y Java, enfocados en resolución de problemas y depuración.</p>
+</div>
+<div class="card">
+<div class="eh"><div><h4>Bachiller en Ciencias Sociales</h4><em>EES N° 3</em></div><span class="yr">2018 – 2023</span></div>
+<p>Desarrollo de habilidades analíticas, comunicación efectiva e interacción social.</p>
+</div>
+</div>
+<div>
+<h3><i class="fas fa-certificate"></i>Certificados e idiomas</h3>
+<div class="card">
+<div class="eh"><div><h4>Curso de Seguridad e Higiene</h4><em>Capacitación técnica</em></div><span class="yr ok">En curso 2026</span></div>
+<p>Normas de salubridad y gestión de riesgos operativos en ambientes laborales.</p>
+</div>
+<div class="card">
+<div class="mini"><i class="fas fa-shield-virus"></i><div><h5>Carnet de Manipulador de Alimentos</h5><p style="color:var(--ok)">Vigente</p></div></div>
+<div class="mini"><i class="fas fa-language"></i><div><h5>Idiomas</h5><p>Español (nativo) · Inglés (B1 intermedio)</p></div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contacto">
+<div class="wrap">
+<div class="sh"><h2>Hablemos y <span>trabajemos</span></h2><p>¿Buscás un profesional dinámico para tu equipo de barra o desarrollo?</p></div>
+<div class="contact">
+<div>
+<div class="card ci"><i class="fas fa-phone"></i><div><small>Teléfono / WhatsApp</small><b>291-449-9050</b></div><button onclick="copy('2914499050','Teléfono copiado')" aria-label="Copiar teléfono"><i class="fas fa-copy"></i></button></div>
+<div class="card ci"><i class="fas fa-envelope"></i><div><small>Email</small><b>fabriziopindave09@gmail.com</b></div><button onclick="copy('fabriziopindave09@gmail.com','Email copiado')" aria-label="Copiar email"><i class="fas fa-copy"></i></button></div>
+<div class="card ci"><i class="fas fa-location-dot"></i><div><small>Ubicación</small><b>Bahía Blanca, Buenos Aires</b></div></div>
+<div class="qa">
+<a class="btn p" href="https://wa.me/542914499050" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+<a class="btn" href="mailto:fabriziopindave09@gmail.com"><i class="fas fa-paper-plane"></i>Enviar mail</a>
+</div>
+</div>
+<div class="card">
+<form id="cf" onsubmit="sendForm(event)">
+<div><label for="n">Nombre completo</label><input id="n" type="text" required placeholder="Tu nombre o empresa"></div>
+<div class="two" style="margin-bottom:0">
+<div><label for="e">Correo electrónico</label><input id="e" type="email" required placeholder="correo@ejemplo.com"></div>
+<div><label for="s">Asunto</label><select id="s"><option>Oferta de trabajo gastronómico</option><option>Proyecto de desarrollo web</option><option>Consulta general</option></select></div>
+</div>
+<div style="margin-top:20px"><label for="m">Mensaje</label><textarea id="m" rows="4" required placeholder="Escribí tu mensaje aquí..."></textarea></div>
+<button type="submit" class="btn p"><i class="fas fa-paper-plane"></i>Enviar mensaje</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap"><p>© 2026 Fabrizio Pindave Fernandez "@rebelkidfbrii". Todos los derechos reservados.</p><p>Bahía Blanca, Argentina</p></div></footer>
+
+<script>
+const mm=document.getElementById('mm');
+document.getElementById('mb').onclick=()=>mm.classList.toggle('open');
+mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+document.querySelectorAll('.f').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.f').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.exp').forEach(c=>c.style.display=(b.dataset.f==='all'||c.classList.contains(b.dataset.f))?'':'none');
+});
+let tt;
+function toast(msg,ic){
+  const t=document.getElementById('toast');
+  document.getElementById('tm').textContent=msg;
+  document.getElementById('ti').className='fas '+ic;
+  t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),3000);
+}
+function copy(text,msg){
+  const done=()=>toast(msg,'fa-copy');
+  if(navigator.clipboard)navigator.clipboard.writeText(text).then(done,done);
+  else{const i=document.createElement('input');i.value=text;document.body.appendChild(i);i.select();document.execCommand('copy');i.remove();done();}
+}
+function sendForm(e){e.preventDefault();toast('¡Mensaje enviado! Me pondré en contacto pronto.','fa-circle-check');e.target.reset();}
+function downloadCV(){toast('Descargando currículum vitae...','fa-file-arrow-down');}
+</script>
+</body>
+</html>
