@@ -139,6 +139,18 @@ label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-t
 input,select,textarea{width:100%;padding:13px 16px;border-radius:12px;background:var(--bg);border:1px solid var(--line);color:var(--hd);font:inherit;font-size:.92rem;transition:border-color .2s}
 input:focus,select:focus,textarea:focus{outline:0;border-color:var(--st)}
 textarea{resize:none}
+input::placeholder,textarea::placeholder{color:#7d8695}
+input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(141,157,182,.18)}
+select{-webkit-appearance:none;appearance:none;cursor:pointer;padding-right:42px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238d9db6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.btn:disabled{opacity:.7;cursor:progress;transform:none}
+.fnote{margin-top:14px;text-align:center;font-size:.78rem;color:#7d8695}
+.fnote i{color:var(--ok);margin-right:6px}
+form.hide{display:none}
+.fok{display:none;text-align:center;padding:36px 8px}
+.fok.show{display:block}
+.fok>i{font-size:2.6rem;color:var(--ok);margin-bottom:18px}
+.fok h3{margin-bottom:10px;font-size:1.3rem}
+.fok p{margin-bottom:24px}
 form>div{margin-bottom:20px}
 .two{display:grid;gap:20px}
 @media(min-width:600px){.two{grid-template-columns:1fr 1fr}}
@@ -362,14 +374,19 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 </div>
 <div class="card">
 <form id="cf" onsubmit="sendForm(event)">
-<div><label for="n">Nombre completo</label><input id="n" type="text" required placeholder="Tu nombre o empresa"></div>
+<input type="hidden" name="access_key" value="a9e3a927-58cb-4348-8dad-d2e09e0b7492">
+<input type="hidden" name="from_name" value="Portafolio web">
+<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+<div><label for="n">Nombre completo</label><input id="n" name="name" type="text" required autocomplete="name" placeholder="Tu nombre o empresa"></div>
 <div class="two" style="margin-bottom:0">
-<div><label for="e">Correo electrónico</label><input id="e" type="email" required placeholder="correo@ejemplo.com"></div>
-<div><label for="s">Asunto</label><select id="s"><option>Oferta de trabajo gastronómico</option><option>Proyecto de desarrollo web</option><option>Consulta general</option></select></div>
+<div><label for="e">Correo electrónico</label><input id="e" name="email" type="email" required autocomplete="email" placeholder="correo@ejemplo.com"></div>
+<div><label for="s">Asunto</label><select id="s" name="asunto"><option>Trabajo gastronómico</option><option>Proyecto web</option><option>Consulta general</option></select></div>
 </div>
-<div style="margin-top:20px"><label for="m">Mensaje</label><textarea id="m" rows="4" required placeholder="Escribí tu mensaje aquí..."></textarea></div>
-<button type="submit" class="btn p"><i class="fas fa-paper-plane"></i>Enviar mensaje</button>
+<div style="margin-top:20px"><label for="m">Mensaje</label><textarea id="m" name="message" rows="5" required minlength="10" placeholder="Escribí tu mensaje aquí..."></textarea></div>
+<button type="submit" id="sb" class="btn p"><i class="fas fa-paper-plane"></i><span>Enviar mensaje</span></button>
+<p class="fnote"><i class="fas fa-clock"></i>Respondo en menos de 24 h</p>
 </form>
+<div class="fok" id="fok" role="status" aria-live="polite"><i class="fas fa-circle-check"></i><h3>¡Mensaje enviado!</h3><p>Gracias por escribirme. Te respondo en menos de 24 horas.</p><button type="button" class="btn" onclick="resetForm()">Enviar otro mensaje</button></div>
 </div>
 </div>
 </div>
@@ -398,7 +415,21 @@ function copy(text,msg){
   if(navigator.clipboard)navigator.clipboard.writeText(text).then(done,done);
   else{const i=document.createElement('input');i.value=text;document.body.appendChild(i);i.select();document.execCommand('copy');i.remove();done();}
 }
-function sendForm(e){e.preventDefault();toast('¡Mensaje enviado! Me pondré en contacto pronto.','fa-circle-check');e.target.reset();}
+async function sendForm(e){
+  e.preventDefault();
+  const f=e.target,b=document.getElementById('sb'),sp=b.querySelector('span'),ic=b.querySelector('i');
+  const d=Object.fromEntries(new FormData(f));
+  d.subject='Portafolio: '+d.asunto+' - '+d.name;
+  b.disabled=true;sp.textContent='Enviando...';ic.className='fas fa-spinner fa-spin';
+  try{
+    const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)});
+    const j=await r.json();
+    if(r.ok&&j.success){f.reset();f.classList.add('hide');document.getElementById('fok').classList.add('show');}
+    else throw new Error(j.message||'Error');
+  }catch(err){toast('No se pudo enviar. Probá de nuevo o escribime por WhatsApp.','fa-triangle-exclamation');}
+  finally{b.disabled=false;sp.textContent='Enviar mensaje';ic.className='fas fa-paper-plane';}
+}
+function resetForm(){document.getElementById('cf').classList.remove('hide');document.getElementById('fok').classList.remove('show');}
 function downloadCV(){toast('Descargando currículum vitae...','fa-file-arrow-down');}
 </script>
 </body>
